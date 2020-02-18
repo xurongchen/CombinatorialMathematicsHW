@@ -1,0 +1,8 @@
+\begin{proof}
+    \begin{align*}
+        \sum_{k=1}^{n} kC(n,k) &= n\sum_{k=1}^{n} \frac{k}{n}\frac{n!}{k!(n-k)!}\\
+        &= n\sum_{k=1}^{n} \frac{(n-1)!}{(k-1)!(n-k)!}\\
+        &= n\sum_{k=0}^{n-1} \frac{n!}{k!(n-k)!}\\
+        &= n2^{n-1}
+    \end{align*}
+\end{proof}

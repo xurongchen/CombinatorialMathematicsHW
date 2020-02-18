@@ -1,0 +1,33 @@
+\begin{proof}
+    可表示的证明：
+    采用数学归纳法。
+    \begin{itemize}
+        \item \textbf{初始：}
+        若$n=1$，显然序列$a_1=1, a_2=a_3=\ldots=0$满足：
+        $\sum_{i\ge 1} {a_i\ i!} = 1$，即$n=1$可以表达。
+        \item \textbf{归纳：}
+        假设$n=m$存在序列$a_1,a_2,a_3,\ldots$的表达。希望构造$n=m+1$的表示
+        序列。设$t$是最小的整数，使得$a_t\neq i$，则构造$a'_1,a'_2,a'_3,\ldots,a'_t,a'_{t+1},\ldots$，
+        使得对于$k<t$，$a'_k=0$，对于$k>t$，$a'_k=a_k$，而$a'_t=a_t+1$。
+        此时：
+        \begin{align*}
+            \sum_{i\ge 1} {a_i\ i!}-\sum_{i\ge 1} {a'_i\ i!} &= \sum_{i\ge 1}{(a_i-a'_i)\ i!} \\
+            &= \sum_{1\le i< t}{(i-0)\ i!} + (a_t - (a_t+1))\ t! \\&+ \sum_{i> t}{(a_i - a_i)\ i!}\\
+            &= -1
+        \end{align*}
+        即$\sum_{i\ge 1} {a'_i\ i!}=\sum_{i\ge 1} {a_i\ i!}+1=m+1$.
+        归纳得$a'_1,a'_2,a'_3,\ldots,a'_t,a'_{t+1},\ldots$可表达$m+1$。
+    \end{itemize}
+
+    唯一性证明：
+    假设$n$存在$a_1,a_2,a_3,\ldots$和$a'_1,a'_2,a'_3,\ldots$两种表达，由于两者不完全相同，
+    则设$t$是最大的数使得$a_k\neq a'_k$，不是一般性地假设$a_k> a'_k$。则：
+    \begin{align*}
+        \sum_{i\ge 1} {a_i\ i!}-\sum_{i\ge 1} {a'_i\ i!} &= \sum_{i\ge 1}{(a_i-a'_i)\ i!} \\
+        &= (a_k-a'_k)\ k! + \sum_{1\le i< k}{(a_i - a'_i)\ i!}\\
+        &\ge k! - \sum_{1\le i< k}{a'_i\ i!}\\
+        &\ge k! - \sum_{1\le i< k}{i\ i!}\\
+        &\ge 1
+    \end{align*}
+    即必然有$\sum_{i\ge 1} {a_i\ i!}\neq\sum_{i\ge 1} {a'_i\ i!}$，这与假设矛盾，唯一性得证。
+\end{proof}
