@@ -1,0 +1,59 @@
+\begin{solution}
+    设长度为$n$的排列中：AB至少出现一次的排列数目为$T_n$，AB未出现且以A结尾的排列数目为$S_n$，
+    AB未出现且以非A结尾的排列数目为$U_n$，则可得以下三个关系式：
+    \begin{align}
+        T_n &= 4^n - S_n - U_n\\
+        S_n &= S_{n-1} + U_{n-1}\\
+        U_n &= 2S_{n-1} + 3U_{n-1}
+    \end{align}
+    式(2)和式(3)联立消$U$，可得$S_{n+1}=4S_n-S_{n-1}$，亦：
+    \begin{align}
+        S_n=4S_{n-1}-S_{n-2}
+    \end{align}
+    由定义不难得到$S_0=0$，$S_1=1$。
+
+    设$E(x)$是序列$\{S_n\}$的母函数，即：
+    \begin{align*}
+        E(x)=S_0+S_1x+S_2x^2+\ldots
+    \end{align*}
+
+    由式(4)可得：
+    \begin{align*}
+        E(x) - 0 - x &= \sum_{k=2}^\infty x^k(4S_{k-1}-S_{k-2})\\
+        &= 4x\sum_{k=0}^\infty x^kS_{k} - 4x\cdot S_0 - x^2\sum_{k=0}^\infty x^kS_{k}\\
+        &= 4xE(x) - x^2E(x)
+    \end{align*}
+    化简：
+    \begin{align*}
+        E(x) &= \frac{x}{x^2-4x+1}\\
+        &= \frac{1}{2\sqrt{3}}\left(\frac{\sqrt{3}-2}{x-(2-\sqrt{3})}+\frac{\sqrt{3}+2}{x-(2+\sqrt{3})}\right)\\
+        &= \frac{1}{2\sqrt{3}}\left(\frac{1}{1-(2+\sqrt{3})x}-\frac{1}{1-(2-\sqrt{3})x}\right)
+    \end{align*}
+    于是：
+    \begin{align*}
+        S_n = \frac{1}{2\sqrt{3}}\left((2+\sqrt{3})^n-(2-\sqrt{3})^n\right)
+    \end{align*}
+    由式(1)和(2)可得：
+    \begin{align*}
+        T_n &= 4^n - S_{n+1} \\
+        &= 4^n - \frac{1}{2\sqrt{3}}\left((2+\sqrt{3})^{n+1}-(2-\sqrt{3})^{n+1}\right)
+    \end{align*}
+
+    % 设$D(x)$是序列$\{T_n\}$的母函数，即：
+    % \begin{align}
+    %     D(x)=T_0+T_1x+T_2x^2+\ldots
+    % \end{align}
+    % 由式(1)可得：
+    % \begin{align*}
+    %     D(x) - T_0 &= \sum_{k=1}^\infty x^k(4T_{k-1}+S_{k-1})\\
+    %     &= 4x\sum_{k=0}^\infty x^kT_{k} - x\sum_{k=0}^\infty x^kS_{k}\\
+    %     &= 4xD(x) - xE(x)
+    % \end{align*}
+    % 其中由定义知$T_0=0$，代入已求得的$E(x)$并化简：
+    % \begin{align*}
+    %     D(x) &= \frac{xE(x)}{4x-1}\\
+    %     &= \frac{x^2}{(x^2-4x+1)(4x-1)}
+    % \end{align*}
+
+
+\end{solution}

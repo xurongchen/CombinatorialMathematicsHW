@@ -1,0 +1,40 @@
+\begin{solution}
+    设长度为$n$的符号串中：aa未出现且以a结尾的排列数目为$S_n$，
+    aa未出现且以非a结尾的排列数目为$U_n$，则可得以下两个关系式：
+    \begin{align}
+        S_n &= U_{n-1}\\
+        U_n &= 2S_{n-1} + 2U_{n-1}
+    \end{align}
+    式(5)和式(6)联立消$S$，可得：
+    \begin{align}
+        U_{n}=2U_{n-1}+2U_{n-2}
+    \end{align}
+    由定义不难得到$U_0=0$，$U_1=2$。
+
+    设$D(x)$是序列$\{U_n\}$的母函数，即：
+    \begin{align*}
+        D(x)=U_0+U_1x+U_2x^2+\ldots
+    \end{align*}
+
+    由式(7)可得：
+    \begin{align*}
+        D(x) - 0 - 2x &= \sum_{k=2}^\infty x^k(2U_{k-1}+2U_{k-2})\\
+        &= 2x\sum_{k=0}^\infty x^kU_{k} - 2x\cdot U_0 + 2x^2\sum_{k=0}^\infty x^kS_{k}\\
+        &= 2xD(x) + 2x^2D(x)
+    \end{align*}
+    化简：
+    \begin{align*}
+        D(x) &= \frac{2x}{-2x^2-2x+1}\\
+        &= 2\left(\frac{1-\frac{1}{\sqrt{3}}}{2x-(-1+\sqrt{3})}+\frac{1+\frac{1}{\sqrt{3}}}{2x-(-1-\sqrt{3})}\right)\\
+        &= 2\left(\frac{1}{1-(2+\sqrt{3})x}-\frac{1}{1-(2-\sqrt{3})x}\right)
+    \end{align*}
+    于是：
+    \begin{align*}
+        S_n = \frac{1}{2\sqrt{3}}\left((2+\sqrt{3})^n-(2-\sqrt{3})^n\right)
+    \end{align*}
+    由式(1)和(2)可得：
+    \begin{align*}
+        T_n &= 4^n - S_{n+1} \\
+        &= 4^n - \frac{1}{2\sqrt{3}}\left((2+\sqrt{3})^{n+1}-(2-\sqrt{3})^{n+1}\right)
+    \end{align*}
+\end{solution}
