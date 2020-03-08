@@ -1,3 +1,15 @@
 \begin{proof}
-    
+    设$F(x)=(1+x)^{n+m+1}$，考虑其展开项中$x^m$的系数。
+    \begin{align*}
+        F(x) &= (1+x)^{n+m+1}\\
+            &= (1+x)^{n+m} + (1+x)^{n+m}x\\
+            &= (1+x)^{n+m} + (1+x)^{n+m-1}x + (1+x)^{n+m-1}x^2\\
+            &= \cdots\\
+            &= \sum_{k=0}^m (1+x)^{n+m-k}x^k + (1+x)^{n}x^{m+1}
+    \end{align*}
+    显然，式$(1+x)^{n}x^{m+1}$的展开式中不存在$x^m$的项。故：
+    \begin{align*}
+        C(n+m+1) &= \sum_{k=0}^m C(n+m-k,m-k)\\
+                &= \sum_{k=0}^m C(n+m-k,n)
+    \end{align*}
 \end{proof}
