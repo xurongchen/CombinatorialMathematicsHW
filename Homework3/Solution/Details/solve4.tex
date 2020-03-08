@@ -1,3 +1,59 @@
 \begin{solution}
-    
+    设计如下的一套移动方案：
+    \begin{enumerate}
+        \item 将A柱上的$n-1$个盘移动到B柱（$n$是奇数）或C柱（$n$是偶数）；
+        \item 将A柱上的1个盘移到C柱（$n$是奇数）或B柱（$n$是偶数）；
+        \item 将B柱（$n$是奇数）或C柱（$n$是偶数）上方的$n-3$个盘移回A柱；
+        \item 将B柱（$n$是奇数）或C柱（$n$是偶数）上方的1个盘移到C柱（$n$是奇数）或B柱（$n$是偶数）；
+        \item 将A柱上的$n-3$个盘按奇偶性分别移动到B柱和C柱。
+    \end{enumerate}
+    设经典河内塔问题之中，将$n$个盘移动到另一个的柱的次数为$H_n$；在此题目之中将偶数编号与奇数编号的
+    盘分别套在B柱和C柱上所需要的次数为$I_n$。
+
+    依据移动方案，可得到以下的关系式：
+    \begin{align*}
+        I_n = H_{n-1} + 1 + H_{n-3} + 1 + I_{n-3}
+    \end{align*}
+    对于$H_n$，利用母函数和递推式$H_n = 2H_{n-1} + 1$，可求得：$H_n = 2^n-1$，于是：
+    \begin{align}
+        I_n &= 2^{n-1} + 2^{n-3} + I_{n-3} %\nonumber\\
+        % &= 5\cdot 2^{n-3} + I_{n-3}
+    \end{align}
+
+    由定义不难得到$I_1=1$，$I_2=2$，$I_3=5$。按式(8)扩展定义可得$I_0=0$。
+
+    % 设$V(x)$是序列$\{I_n\}$的母函数，即：
+    % \begin{align*}
+    %     V(x)=I_0+I_1x+I_2x^2+\ldots
+    % \end{align*}
+    % 由式(8)可得：
+    % \begin{align*}
+    %     V(x) - 0 - x - 2x^2&= \sum_{k=3}^\infty x^k(5\cdot 2^{k-3} + I_{k-3})\\
+    %     &= x^3\sum_{k=0}^\infty x^kI_{k} + \sum_{k=3}^\infty x^k\cdot5\cdot 2^{k-3}\\
+    %     &= x^3V(x) + \sum_{k=3}^\infty x^k\cdot5\cdot 2^{k-3}
+    % \end{align*}
+    % 化简：
+    % \begin{align*}
+    %     V(x) = \frac{-2x^2-x-\sum_{k=3}^\infty x^k\cdot5\cdot 2^{k-3}}{x^3-1}
+    % \end{align*}
+    % 利用待定系数法配凑：
+    % \begin{align*}
+    %     V(x) = \frac{\sum_{k=0}^\infty x^k(x^3-1)(\lambda\cdot2^k+\mu)}{x^3-1}
+    % \end{align*}
+    % 解得：$\lambda=\frac{5}{7}$，$\mu = \frac{2}{7}$.
+
+    由式(8)可得：
+    \begin{align*}
+        I_n -2I_{n-1}-I_{n-3}+2I_{n-4} = 0
+    \end{align*}
+    求得其特征方程的四个根分别是：
+    $$x_1=2,x_2=1,x_3=\frac{-1+\sqrt{3}i}{2},x_4=\frac{-1-\sqrt{3}i}{2}$$
+
+    设$I_n=\alpha2^n+\beta+\gamma e^{i\frac{2\pi}{3}n} + \delta e^{-i\frac{2\pi}{3}n}$，代入初始
+    值$I_0=0$，$I_1=1$，$I_2=2$，$I_3=5$，解得：
+    $$\alpha=\frac{5}{7},\beta=-\frac{2}{3},\gamma=\frac{-1-3\sqrt{3}i}{42},\delta=\frac{-1+3\sqrt{3}i}{42}$$
+
+    于是：
+    $$I_n=\frac{5}{7}2^n-\frac{2}{3}+\frac{-1-3\sqrt{3}i}{42} e^{i\frac{2\pi}{3}n} + \frac{-1+3\sqrt{3}i}{42} e^{-i\frac{2\pi}{3}n}$$
+
 \end{solution}
