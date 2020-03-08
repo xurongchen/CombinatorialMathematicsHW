@@ -9,7 +9,7 @@
     \begin{align}
         U_{n}=2U_{n-1}+2U_{n-2}
     \end{align}
-    由定义不难得到$U_0=0$，$U_1=2$。
+    由定义不难得到$S_1=1$，$U_1=2$。按式(5)(6)扩展定义可得$S_0=0$，$U_0=1$。
 
     设$D(x)$是序列$\{U_n\}$的母函数，即：
     \begin{align*}
@@ -18,23 +18,23 @@
 
     由式(7)可得：
     \begin{align*}
-        D(x) - 0 - 2x &= \sum_{k=2}^\infty x^k(2U_{k-1}+2U_{k-2})\\
-        &= 2x\sum_{k=0}^\infty x^kU_{k} - 2x\cdot U_0 + 2x^2\sum_{k=0}^\infty x^kS_{k}\\
-        &= 2xD(x) + 2x^2D(x)
+        D(x) - 1 - 2x &= \sum_{k=2}^\infty x^k(2U_{k-1}+2U_{k-2})\\
+        &= 2x\sum_{k=0}^\infty x^kU_{k} - 2x\cdot U_0 + 2x^2\sum_{k=0}^\infty x^kU_{k}\\
+        &= 2xD(x) + 2x^2D(x) - 2x
     \end{align*}
     化简：
     \begin{align*}
-        D(x) &= \frac{2x}{-2x^2-2x+1}\\
-        &= 2\left(\frac{1-\frac{1}{\sqrt{3}}}{2x-(-1+\sqrt{3})}+\frac{1+\frac{1}{\sqrt{3}}}{2x-(-1-\sqrt{3})}\right)\\
-        &= 2\left(\frac{1}{1-(2+\sqrt{3})x}-\frac{1}{1-(2-\sqrt{3})x}\right)
+        D(x) &= \frac{1}{-2x^2-2x+1}\\
+        % &= 2\left(\frac{1-\frac{1}{\sqrt{3}}}{2x-(-1+\sqrt{3})}+\frac{1+\frac{1}{\sqrt{3}}}{2x-(-1-\sqrt{3})}\right)\\
+        &= \frac{1}{2\sqrt{3}}\left(\frac{1+\sqrt{3}}{1-(1+\sqrt{3})x}-\frac{1-\sqrt{3}}{1-(1-\sqrt{3})x}\right)
     \end{align*}
     于是：
     \begin{align*}
-        S_n = \frac{1}{2\sqrt{3}}\left((2+\sqrt{3})^n-(2-\sqrt{3})^n\right)
+        U_n = \frac{1}{2\sqrt{3}}\left((1+\sqrt{3})^{n+1}-(1-\sqrt{3})^{n+1}\right)
     \end{align*}
-    由式(1)和(2)可得：
+    由式(6)可得：
     \begin{align*}
-        T_n &= 4^n - S_{n+1} \\
-        &= 4^n - \frac{1}{2\sqrt{3}}\left((2+\sqrt{3})^{n+1}-(2-\sqrt{3})^{n+1}\right)
+        U_n + S_n&= \frac{1}{2}U_{n+1}\\
+        &= \frac{1}{4\sqrt{3}}\left((1+\sqrt{3})^{n+2}-(1-\sqrt{3})^{n+2}\right)
     \end{align*}
 \end{solution}
