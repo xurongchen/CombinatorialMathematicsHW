@@ -1,3 +1,56 @@
 \begin{solution}
-    
+    设$n$个平面将空间分割成为不重叠的域的个数为$S_n$。类似的一个问题，设平面上无三线共点的$n$条直线将平面分割成为
+    区域的个数为$T_n$。考虑第$n$个平面带来的域个数的增益。在第$n$个平面上，已有的$n-1$个平面与第$n$个平面将第$n$
+    个平面分成了$T_{n-1}$个区域，而每个区域的上下两面其中一个可以视为第$n$个平面带来的增益，即：
+    $$S_{n}-S_{n-1}=T_{n-1}$$
+    下面先考虑$T_n$，考虑第$n$条线带来平面上区域个数的增益，显然它与已有$n-1$条线共有$n-1$个交点，即第$n$条线被
+    分为了$n$段，而每段的两侧其中一个可以视为第$n$条线带来的增益，即：
+    $$T_{n}-T_{n-1}=n$$
+    于是：
+    \begin{align*}
+        S_{n}-2S_{n-1}+S_{n-2} &= (S_{n}-S_{n-1}) - (S_{n-1}-S_{n-2})\\
+        &= T_{n-1} - T_{n-2} \\
+        &= n - 1
+    \end{align*}
+    相应地：
+    \begin{align*}
+        S_{n-1}-2S_{n-2}+S_{n-3} = (n-1)-1 = n - 2
+    \end{align*}
+    于是：
+    \begin{align*}
+        S_{n}-3S_{n-1}+3S_{n-2}-S_{n-3} = 1
+    \end{align*}
+    相应地：
+    \begin{align*}
+        S_{n-1}-3S_{n-2}+3S_{n-3}-S_{n-4} = 1
+    \end{align*}
+    于是：
+    \begin{align*}
+        S_{n}-4S_{n-1}+6S_{n-2}-4S_{n-3}+S_{n-4} = 0
+    \end{align*}
+    得到特征方程：$x^4-4x^3+6x^2-4x+1=0$，解得：
+    \begin{align*}
+        x_1 = x_2 = x_3 = x_4 = 1
+    \end{align*}
+    设特征方程：
+    $S_n = \alpha n^3+\beta n^2 +\gamma n + \delta$。代入初始值$S_1=2$，$S_2=4$，$S_3=8$，$S_4=15$：
+    \begin{align*}
+        \begin{cases}
+            \alpha + \beta + \gamma + \delta= 2\\
+            8\alpha + 4\beta + 2\gamma + \delta= 4\\
+            27\alpha + 9\beta + 3\gamma + \delta= 8\\
+            64\alpha + 16\beta + 4\gamma + \delta= 15
+        \end{cases}
+    \end{align*}
+    解得：
+    \begin{align*}
+        \begin{cases}
+            \alpha = \frac{1}{6}\\
+            \beta = 0\\
+            \gamma = \frac{5}{6}\\
+            \delta = 1
+        \end{cases}
+    \end{align*}
+    即：
+    $$S_n = \frac{1}{6}\cdot n^3 + \frac{5}{6}\cdot n + 1$$
 \end{solution}
