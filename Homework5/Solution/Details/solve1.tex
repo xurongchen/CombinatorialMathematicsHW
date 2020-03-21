@@ -1,0 +1,34 @@
+\begin{solution}
+    设$n$位二进制数中，相邻两位不出现$11$的数的个数为$S_n$。考虑$S_n$的递推，易得
+    $S_n$只有两种来源：
+    \begin{enumerate}
+        \item[(1)] $n-1$位二进制数后加上0；
+        \item[(2)] $n-2$位二进制数后加上01；
+    \end{enumerate}
+    于是，得到递推式：
+    $$S_n=S_{n-1}+S_{n-2}$$
+    对应得到特征方程$x^2-x-1=0$，解得：
+    \begin{align*}
+        \begin{cases}
+            x_1 = \frac{1+\sqrt{5}}{2}\\
+            x_2 = \frac{1-\sqrt{5}}{2}
+        \end{cases}
+    \end{align*}
+    设$S_n$：
+    $S_n = \alpha (\frac{1+\sqrt{5}}{2})^n+\beta (\frac{1-\sqrt{5}}{2})^n$。代入初始值$S_1=2,S_2=3$：
+    \begin{align*}
+        \begin{cases}
+            \alpha (\frac{1+\sqrt{5}}{2}) +\beta (\frac{1-\sqrt{5}}{2}) = 2\\
+            \alpha (\frac{1+\sqrt{5}}{2})^2 +\beta (\frac{1-\sqrt{5}}{2})^2 = 3
+        \end{cases}
+    \end{align*}
+    解得：
+    \begin{align*}
+        \begin{cases}
+            \alpha = \frac{5+3\sqrt{5}}{2}\\
+            \beta = \frac{5-3\sqrt{5}}{2}
+        \end{cases}
+    \end{align*}
+    即：
+    $$S_n = \frac{5+3\sqrt{5}}{2} \left(\frac{1+\sqrt{5}}{2}\right)^n+\frac{5-3\sqrt{5}}{2} \left(\frac{1-\sqrt{5}}{2}\right)^n$$
+\end{solution}

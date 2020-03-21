@@ -1,0 +1,65 @@
+\begin{solution}
+    设$n$条直线把圆分割成$F_n$个部分。考虑每一条直线的增益，显然若它未与其他直线相交
+    它带来的分割数目增益为1；在此基础上它每与一条直线相交则额外带来1的增益。
+    于是，由题意可得到$F_n$的递推式：
+    \begin{align*}
+        F_n = 
+        \begin{cases}
+        F_{n-1}+1&n\text{是奇数}\\
+        F_{n-1}+n&n\text{是偶数}
+        \end{cases}
+    \end{align*}
+
+    若$n$是偶数：
+    $$F_n=F_{n-1}+n=F_{n-2}+1+n$$
+    相应地：
+    $$F_{n-2}=F_{n-4}+1+n-2$$
+    于是：
+    $$F_n-F_{n-2}=F_{n-2}-F_{n-4}+2$$
+    整理：
+    $$F_n-2F_{n-2}+F_{n-4}=2$$
+    相应地：
+    $$F_{n-2}-2F_{n-4}+F_{n-6}=2$$
+    于是：
+    $$F_n-3F_{n-2}+3F_{n-4}-F_{n-6}=0$$
+    令$G_k=F_\frac{n}{2}$：
+    $$G_k-3G_{k-1}+3G_{k-2}-G_{k-3}=0$$
+    对应得到特征方程$x^3-3x^2+3x-1=0$，解得：
+    \begin{align*}
+            x_1 = x_2 = x_3 = 1
+    \end{align*}
+    设$G_k$：
+    $G_k = \alpha+ \beta k+\gamma k^2$。代入初始值：$G_0=F_0=1$, $G_1=F_2=4$,
+    $G_2=F_4=9$,  
+    \begin{align*}
+        \begin{cases}
+            \alpha = 1\\
+            \alpha+ \beta + \gamma = 4\\
+            \alpha+ 2\beta +4\gamma = 9
+        \end{cases}
+    \end{align*}
+    解得：
+    \begin{align*}
+        \begin{cases}
+            \alpha = 1\\
+            \beta =2\\
+            \gamma = 1
+        \end{cases}
+    \end{align*}
+    即：
+    $$G_k = 1 + 2k+ k^2$$
+    于是对于偶数$n$：
+    $$F_n = 1 + 4n+ 4n^2$$
+
+    对于奇数$n$：
+    $$F_n = 1 + 4(n-1)+ 4(n-1)^2+1=2-4n+4n^2$$
+
+    综上所述：
+    \begin{align*}
+        F_n = 
+        \begin{cases}
+            2-4n+4n^2&n\text{是奇数}\\
+            1 + 4n+ 4n^2&n\text{是偶数}
+        \end{cases}
+    \end{align*}
+\end{solution}
