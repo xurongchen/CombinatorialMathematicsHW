@@ -5,15 +5,16 @@
     \begin{align*}
         F_n = 
         \begin{cases}
-        F_{n-1}+1&n\text{是奇数}\\
+        % F_{n-1}+1&n\text{是奇数}\\
+        F_{n-1}+2&n\text{是奇数}\\
         F_{n-1}+n&n\text{是偶数}
         \end{cases}
     \end{align*}
 
     若$n$是偶数：
-    $$F_n=F_{n-1}+n=F_{n-2}+1+n$$
+    $$F_n=F_{n-1}+n=F_{n-2}+2+n$$
     相应地：
-    $$F_{n-2}=F_{n-4}+1+n-2$$
+    $$F_{n-2}=F_{n-4}+2+n-2$$
     于是：
     $$F_n-F_{n-2}=F_{n-2}-F_{n-4}+2$$
     整理：
@@ -29,37 +30,40 @@
             x_1 = x_2 = x_3 = 1
     \end{align*}
     设$G_k$：
-    $G_k = \alpha+ \beta k+\gamma k^2$。代入初始值：$G_0=F_0=1$, $G_1=F_2=4$,
-    $G_2=F_4=9$,  
+    $G_k = \alpha+ \beta k+\gamma k^2$。代入初始值：$G_1=F_2=4$,
+    $G_2=F_4=10$, $G_3=F_6=18$：
     \begin{align*}
         \begin{cases}
-            \alpha = 1\\
+            % \alpha = 1\\
             \alpha+ \beta + \gamma = 4\\
-            \alpha+ 2\beta +4\gamma = 9
+            \alpha+ 2\beta +4\gamma = 10\\
+            \alpha+ 3\beta +9\gamma = 18
         \end{cases}
     \end{align*}
     解得：
     \begin{align*}
         \begin{cases}
-            \alpha = 1\\
-            \beta =2\\
+            \alpha = 0\\
+            \beta = 3\\
             \gamma = 1
         \end{cases}
     \end{align*}
     即：
-    $$G_k = 1 + 2k+ k^2$$
+    $$G_k = 3k+ k^2$$
     于是对于偶数$n$：
-    $$F_n = 1 + 4n+ 4n^2$$
-
+    $$F_n = 3\cdot\frac{n}{2}+ \left(\frac{n}{2}\right)^2$$
+    整理得到：
+    $$F_n = \frac{1}{4}n^2+\frac{3}{2}n$$
     对于奇数$n$：
-    $$F_n = 1 + 4(n-1)+ 4(n-1)^2+1=2-4n+4n^2$$
-
+    $$F_n = \frac{1}{4}(n+1)^2+\frac{3}{2}(n+1)-(n+1)$$
+    整理得到：
+    $$F_n = \frac{1}{4}n^2+n+\frac{3}{4}$$
     综上所述：
     \begin{align*}
         F_n = 
         \begin{cases}
-            2-4n+4n^2&n\text{是奇数}\\
-            1 + 4n+ 4n^2&n\text{是偶数}
+            \frac{1}{4}n^2+n+\frac{3}{4}&n\text{是奇数}\\
+            \frac{1}{4}n^2+\frac{3}{2}n&n\text{是偶数}
         \end{cases}
     \end{align*}
 \end{solution}
