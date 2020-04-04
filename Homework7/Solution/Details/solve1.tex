@@ -1,0 +1,9 @@
+\begin{proof}
+    设$n$所有互异的素因子为$p_1,p_2,\ldots,p_k$，根据莫比乌斯函数$\mu$的定义，待证明右式：
+    \begin{align*}
+        n\sum_{d\mid n}\frac{\mu(d)}{d} &= n\sum_{d\mid \prod p_i}\frac{\mu(d)}{d} 
+        =n \sum_{t\in [0,k]} \left((-1)^t \sum_{I\in \mathcal{C}(k,t)} \prod_{j\in I} p_j^{-1}\right)\\
+        &= n \prod_{i\in [1,k]}\left( 1 - p_i^{-1}\right) = \phi(n)
+    \end{align*}
+    其中，$\mathcal{C}(k,t)$表示从$1,2,\ldots,k$中选出$t$个数的所有组合情况集合。
+\end{proof}

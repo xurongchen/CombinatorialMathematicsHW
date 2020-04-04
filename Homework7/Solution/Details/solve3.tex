@@ -1,0 +1,12 @@
+\begin{proof}设$m$的所有正因数集合为$\mathbb{M}$，$n$的所有正因数集合为$\mathbb{N}$，
+    待证明右式：
+    \begin{align*}
+        g(m)g(n)&=\left(\sum_{d_1\in \mathbb{M}}f(d_1)\right)\left(\sum_{d_2\in \mathbb{N}}f(d_2)\right)\\
+        &=\sum_{(d_1,d_2)\in \mathbb{M}\times\mathbb{N}}f(d_1)f(d_2)=\sum_{(d_1,d_2)\in \mathbb{M}\times\mathbb{N}}f(d_1\cdot d_2)
+    \end{align*}
+    设$mn$的所有正因数集合为$\mathbb{P}$，由于$m$、$n$是互质的两个数，可得到$d_1\cdot d_2\Longrightarrow (d_1, d_2)$是域$\mathbb{P}$到域
+    $\mathbb{M}\times\mathbb{N}$上的一个双射。于是可以替换求和元素：
+    \begin{align*}
+        g(m)g(n)&=\sum_{(d_1,d_2)\in \mathbb{M}\times\mathbb{N}}f(d_1\cdot d_2)=\sum_{d_1\cdot d_2 \in\mathbb{P}}f(d_1\cdot d_2)=g(mn)
+    \end{align*}
+\end{proof}
