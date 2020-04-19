@@ -1,0 +1,22 @@
+\begin{solution}
+    阶为$n$的循环群$G$的母元素的数目个数为$\varphi(n)$，其中$\varphi(n)$表示
+    欧拉函数。设$a^1,a^2,\ldots,a^n$是一组基于母元素$a$的表示。
+    $n=1$时，$G=\{e\}$，$\varphi(n)=1$显然成立。
+    下面证明$n>1$时：
+    \begin{enumerate}
+        \item 对于所有$m \equiv 1 (\text{mod } n)$，可以用$a^m$作为新的母元素表示
+        其他元素；
+        \item 对于所有$l \equiv r (\text{mod } n)$，其中$r\neq 1$，若以$a^r$作为
+        母元素无法表示$a^1$。
+    \end{enumerate}
+    \begin{proof}
+        \begin{enumerate}
+            \item 对于任意的$a^k$，其中$k\le n$，希望找到一个$s\le n$，使得
+            $(a^m)^s=a^k$；等价转换为$s\cdot m \equiv k (\text{mod } n)$，
+            由$m \equiv 1 (\text{mod } n)$，可以取$s= k$；
+            \item 若可以表示，则存在正整数$t$，$t\cdot l \equiv 1 (\text{mod } n)$，
+            进而必然要求$l \equiv 1 (\text{mod } n)$（$t\cdot l$与$n$互质，则一定要求$l$与$n$互质），这与$l \equiv r (\text{mod } n)$，
+            其中$r\neq 1$矛盾。
+        \end{enumerate}
+    \end{proof}
+\end{solution}

@@ -1,0 +1,16 @@
+\begin{proof}
+    在$C$中任取两个元素$a=x^s,b=x^t$（$0\le s,t\le m-1$，特别地$e=x^0$）。于是
+    $a\cdot b=x^s\cdot x^t=x^{s+t}$，又由于$x^m=e$，于是$a\cdot b=x^{s+t\text{ mod }m}$，
+    显然$x^{(s+t)\text{ mod }m}\in C$，于是$C$具有封闭性；
+
+    由于$x\in G$，$G$的封闭性要求任何$x^k\in G$，于是$C$显然是$G$的一个子集，因此
+    $C$必然继承了群$G$的结合律；
+
+    同理$e$是$G$的单位元，显然亦是$G$子集合$C$的单位元；
+
+    对于$C$中任意一个元素$x^p$（$0\le p\le m-1$，特别地$e=x^0$），对应地存在唯一的
+    $x^{(m-p)\text{ mod }m}\in C$，使得$x^p\cdot x^{(m-p)\text{ mod }m} = e$，
+    即$C$中每个元素均存在唯一的逆元；
+
+    综上所述，$C$是$G$的一个子群。
+\end{proof}

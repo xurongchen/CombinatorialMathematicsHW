@@ -1,0 +1,14 @@
+\begin{proof}
+    采用反证法。设有限群$G$存在一个元素$p=x^k$（$k>n$，且对任意$t<k$，$p\neq x^t$
+    ），其中$x\in G$。根据群的封闭性要求，任意的$s<c$，$x^s\in G$，其中$c$是一个非负
+    常数。
+    
+    分情况讨论：
+    \begin{itemize}
+        \item $c<=n$，于是有$x^c=x^d$，其中$d<c$。于是$p=x^k=x^{k-c+d}$，这与
+        对任意$t<k$，$p\neq x^t$矛盾；
+        \item $c>n$，于是$G$的阶必然大于$n$，这与题设$G$是阶为$n$的有限群矛盾。
+    \end{itemize}
+
+    综上所述，阶为$n$的有限群中所有元素的阶都不超过$n$。
+\end{proof}
