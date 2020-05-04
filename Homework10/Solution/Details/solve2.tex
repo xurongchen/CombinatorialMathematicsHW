@@ -1,0 +1,44 @@
+\begin{solution}
+    五个珠子分别为1，2，3，4，5的圆环，根据旋转和对称性，可以有以下的置换：
+    \begin{enumerate}
+        \item 不变：\label{case1}
+        \begin{align*}
+            \left(
+               \begin{matrix}
+                  1 & 2 & 3 & 4 & 5\\
+                  1 & 2 & 3 & 4 & 5
+               \end{matrix}
+               \right) &= (1)(2)(3)(4)(5) \\
+               &= (5,0,0,0,0)
+         \end{align*}
+         $1$种情况。
+        \item 逆时针旋转i个($1\le i\le 4$)珠子的位置，由于$\gcd(i,5)=1$，均是(0,0,0,0,1)的置换群。
+        共有$4$种情况。\label{case2}
+        \item 情况\ref{case1}的镜像对称：\label{case3}
+        \begin{align*}
+            \left(
+               \begin{matrix}
+                  1 & 2 & 3 & 4 & 5\\
+                  1 & 5 & 4 & 3 & 2
+               \end{matrix}
+               \right) &= (1)(25)(34) \\
+               &= (1,2,0,0,0)
+         \end{align*}
+         $1$种情况。
+        \item 情况\ref{case2}的镜像对称，如：
+        \begin{align*}
+            \left(
+               \begin{matrix}
+                  1 & 2 & 3 & 4 & 5\\
+                  5 & 4 & 3 & 2 & 1
+               \end{matrix}
+               \right) &= (15)(24)(3) \\
+               &= (1,2,0,0,0)
+         \end{align*}
+         均是(1,2,0,0,0)的置换群。共有$4$种情况。
+    \end{enumerate}
+    根据Polya定理，总的染色方案数：
+    \begin{align*}
+        \frac{1}{10}\left(3^5+4(3^1)+5(3^1\cdot 3^2)\right) = 39
+    \end{align*}
+\end{solution}
