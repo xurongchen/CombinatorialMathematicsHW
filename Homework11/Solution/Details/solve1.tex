@@ -1,0 +1,98 @@
+\begin{solution}
+   如下图若所示的正六面体abcdefgh中，考虑空间旋转导致的面置换.
+   简记面abcd为面1；面dcgh为面2；面cbfg为面3；面fehg为面4；
+   面adhc为面4；面baef为面6：
+   \begin{center}
+      \begin{tikzpicture}
+         \node (O) at (0,0,0) {\small e};
+         \node (A) at (0,\Width,0) {\small a};
+         \node (B) at (0,\Width,\Height) {\small d};
+         \node (C) at (0,0,\Height) {\small h};
+         \node (D) at (\Depth,0,0) {\small f};
+         \node (E) at (\Depth,\Width,0) {\small b};
+         \node (F) at (\Depth,\Width,\Height) {\small c};
+         \node (G) at (\Depth,0,\Height) {\small g};
+         \draw (O) -- (C) -- (G) -- (D) -- (O);% Bottom Face
+         \draw (O) -- (A) -- (E) -- (D) -- (O);% Back Face
+         \draw (O) -- (A) -- (B) -- (C) -- (O);% Left Face
+         \draw (D) -- (E) -- (F) -- (G) -- (D);% Right Face
+         \draw (C) -- (B) -- (F) -- (G) -- (C);% Front Face
+         \draw (A) -- (B) -- (F) -- (E) -- (A);% Top Face
+   
+         \draw[blue,dashed] (A) -- (G);
+         \draw[brown,dashed] (0,\Width/2,\Height/2) -- (\Depth,\Width/2,\Height/2);
+         \draw[red,dashed] (\Depth/2,0,\Height) -- (\Depth/2,\Width,0);
+         \end{tikzpicture}
+   \end{center}
+   \begin{enumerate}
+      \item 不变：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               1 & 2 & 3 & 4 & 5 & 6\\
+               1 & 2 & 3 & 4 & 5 & 6
+            \end{matrix}
+            \right) &= (1)(2)(3)(4)(5)(6) \\
+            &= (6,0,0,0,0,0)
+      \end{align*}
+      $1$种情况。
+      \item 面心-面心的旋转（棕色线所示）：
+      \begin{itemize}
+         \item 逆时针旋转90度或270度，例如置换：
+         \begin{align*}
+            \left(
+               \begin{matrix}
+                  1 & 2 & 3 & 4 & 5 & 6\\
+                  2 & 4 & 3 & 6 & 5 & 1
+               \end{matrix}
+               \right) &= (1246)(3)(5) \\
+               &= (2,0,0,1,0,0)
+         \end{align*}
+         3个面各2种旋转，共$3*2 = 6$种情况。
+      \item 旋转180度，例如置换：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               1 & 2 & 3 & 4 & 5 & 6\\
+               4 & 6 & 3 & 1 & 5 & 2
+            \end{matrix}
+            \right) &= (14)(26)(3)(5) \\
+            &= (2,2,0,0,0,0)
+      \end{align*}
+      3个面，共$3$种情况。
+      \end{itemize}
+      \item 棱中点-棱中点的180度旋转（红色线所示），例如置换：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               1 & 2 & 3 & 4 & 5 & 6\\
+               6 & 4 & 5 & 2 & 3 & 1
+            \end{matrix}
+            \right) &= (16)(24)(35) \\
+            &= (0,3,0,0,0,0)
+      \end{align*}
+      6对棱，共$6$种情况。
+      \item 顶点-顶点的逆时针120度或240旋转（蓝色线所示），例如置换：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               1 & 2 & 3 & 4 & 5 & 6\\
+               6 & 3 & 4 & 2 & 1 & 5
+            \end{matrix}
+            \right) &= (165)(234) \\
+            &= (0,0,2,0,0,0)
+      \end{align*}
+      4对顶点各2种旋转，共$4*2=8$种情况。
+   \end{enumerate}
+   合计$1+6+3+6+8=24$种情况。由Polya定理，染色方案的母函数$F$有：
+   \begin{align*}
+      F&=\frac{1}{24}[(g+r+b+y)^6+6(g^4+r^4+b^4+y^4)(g+r+b+y)^2\\
+      &+3(g^2+r^2+b^2+y^2)^2(g+r+b+y)^2+6(g^3+r^3+b^3+y^3)^2\\
+      &+8(g^2+r^2+b^2+y^2)^3]\\
+   \end{align*}
+   其中$g^2y^2br$的系数为：
+   \begin{align*}
+      \frac{1}{24}\left(C_6^2C_4^2C_2^1C_1^1+0+3C_2^1C_1^1C_2^1C_1^1+0+0\right) = 8
+   \end{align*}
+   即两个面用色g，两个面用色y，其余一面用b，一面用r的方案有8种。
+\end{solution}

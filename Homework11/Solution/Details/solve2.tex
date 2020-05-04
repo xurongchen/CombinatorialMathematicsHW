@@ -1,0 +1,95 @@
+\begin{solution}
+   如下图若所示的正六面体abcdefgh中，考虑空间旋转导致的顶点置换：
+   \begin{center}
+      \begin{tikzpicture}
+         \node (O) at (0,0,0) {\small e};
+         \node (A) at (0,\Width,0) {\small a};
+         \node (B) at (0,\Width,\Height) {\small d};
+         \node (C) at (0,0,\Height) {\small h};
+         \node (D) at (\Depth,0,0) {\small f};
+         \node (E) at (\Depth,\Width,0) {\small b};
+         \node (F) at (\Depth,\Width,\Height) {\small c};
+         \node (G) at (\Depth,0,\Height) {\small g};
+         \draw (O) -- (C) -- (G) -- (D) -- (O);% Bottom Face
+         \draw (O) -- (A) -- (E) -- (D) -- (O);% Back Face
+         \draw (O) -- (A) -- (B) -- (C) -- (O);% Left Face
+         \draw (D) -- (E) -- (F) -- (G) -- (D);% Right Face
+         \draw (C) -- (B) -- (F) -- (G) -- (C);% Front Face
+         \draw (A) -- (B) -- (F) -- (E) -- (A);% Top Face
+   
+         \draw[blue,dashed] (A) -- (G);
+         \draw[brown,dashed] (0,\Width/2,\Height/2) -- (\Depth,\Width/2,\Height/2);
+         \draw[red,dashed] (\Depth/2,0,\Height) -- (\Depth/2,\Width,0);
+         \end{tikzpicture}
+   \end{center}
+   \begin{enumerate}
+      \item 不变：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               a & b & c & d & e & f & g & h\\
+               a & b & c & d & e & f & g & h
+            \end{matrix}
+            \right) &= (a)(b)(c)(d)(e)(f)(g)(h) \\
+            &= (8,0,0,0,0,0,0,0)
+      \end{align*}
+      $1$种情况。
+      \item 面心-面心的旋转（棕色线所示）：
+      \begin{itemize}
+         \item 逆时针旋转90度或270度，例如置换：
+         \begin{align*}
+            \left(
+               \begin{matrix}
+                  a & b & c & d & e & f & g & h\\
+                  e & f & b & a & h & g & c & d
+               \end{matrix}
+               \right) &= (aehd)(bfgc) \\
+               &= (0,0,0,2,0,0,0,0)
+         \end{align*}
+         3个面各2种旋转，共$3*2 = 6$种情况。
+      \item 旋转180度，例如置换：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               a & b & c & d & e & f & g & h\\
+               h & g & f & e & d & c & b & a
+            \end{matrix}
+            \right) &= (ah)(bg)(cf)(de) \\
+            &= (0,4,0,0,0,0,0,0)
+      \end{align*}
+      3个面，共$3$种情况。
+      \end{itemize}
+      \item 棱中点-棱中点的180度旋转（红色线所示），例如置换：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               a & b & c & d & e & f & g & h\\
+               b & a & e & f & c & d & h & g
+            \end{matrix}
+            \right) &= (ab)(ce)(df)(gh) \\
+            &= (0,4,0,0,0,0,0,0)
+      \end{align*}
+      6对棱，共$6$种情况。
+      \item 顶点-顶点的逆时针120度或240旋转（蓝色线所示），例如置换：
+      \begin{align*}
+         \left(
+            \begin{matrix}
+               a & b & c & d & e & f & g & h\\
+               a & d & h & e & b & c & g & f
+            \end{matrix}
+            \right) &= (a)(bde)(chf)(g) \\
+            &= (2,0,2,0,0,0,0,0)
+      \end{align*}
+      4对顶点各2种旋转，共$4*2=8$种情况。
+   \end{enumerate}
+   合计$1+6+3+6+8=24$种情况。设未放置球的顶点为e(mpty)。由Polya定理，方案数的母函数$F$有：
+   \begin{align*}
+      F&=\frac{1}{24}[(b+r+e)^8+6(b^4+r^4+e^4)^2+9(b^2+r^2+e^2)^4\\
+      &+8(b+r+e)^2(b^3+r^3+e^3)^2])\\
+   \end{align*}
+   其中$b^2r^2e^4$的系数为：
+   \begin{align*}
+      \frac{1}{24}\left(C_8^2C_6^2C_4^4+0+9C_4^1C_3^1C_2^2+0\right) = 8
+   \end{align*}
+   即两个r色球，两个b色的球装在六面体顶点的方案数为8种。
+\end{solution}
