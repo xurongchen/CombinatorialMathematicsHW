@@ -1,0 +1,100 @@
+\begin{solution}
+   \begin{enumerate}
+      \item 
+      $x_2 = -2x_1 + z$\\
+      画图：
+      \begin{center}
+      \resizebox{0.6\linewidth}{!}{
+        \begin{tikzpicture}[xscale=0.4,yscale=0.4]
+            % draw the axis
+            \draw[eaxis] (-0.5,0) -- (10,0) node[below] {$x_1$};
+            \draw[eaxis] (0,-0.5) -- (0, 10) node[above] {$x_2$};
+            % draw the function (piecewise)
+            \draw[elegant,domain=-0.5:10] plot(\x,{-\x/4+8});
+            \draw[elegant,domain=2:10] plot(\x,{-\x+11});
+            \draw[elegant,domain=5:7.1] plot(\x,{-5*\x+35});
+            \draw[elegant,domain=-0.5:9] plot(\x,0);
+            \draw[elegant,domain=-0.5:9] plot(0,\x);
+            \fill[gray!40] (0,0) -- (7,0) -- (6,5) -- (4,7) -- (0,8) -- (0,0);
+
+            \draw[elegant,red,domain=3:8] plot(\x,{-2*\x+17});
+
+            \node at (6,5) [right] {(6,5)};
+        \end{tikzpicture}
+      }
+      \end{center}
+      得到$\max z = 17$；
+      \item 
+      $x_2 = -x_1 + z$\\
+      画图：
+      \begin{center}
+      \resizebox{0.6\linewidth}{!}{
+        \begin{tikzpicture}
+            % draw the axis
+            \draw[eaxis] (-0.5,0) -- (3,0) node[below] {$x_1$};
+            \draw[eaxis] (0,-0.5) -- (0, 3) node[above] {$x_2$};
+            % draw the function (piecewise)
+            \draw[elegant,domain=-0.5:3] plot(\x,{-4*\x/5+2});
+            \draw[elegant,domain=1:2.1] plot(\x,{-5*\x/2+5});
+            \draw[elegant,domain=-0.5:3] plot(\x,{-3*\x/8+3/2});
+            \draw[elegant,domain=-0.5:3] plot(\x,0);
+            \draw[elegant,domain=-0.5:3] plot(0,\x);
+            \fill[gray!40] (0,0) -- (2,0) -- (30/17,10/17) -- (20/17,18/17) -- (0,3/2) -- (0,0);
+
+            \draw[elegant,red,domain=0.5:2.5] plot(\x,{-\x+40/17});
+
+            \node at (30/17,10/17) [right] {($\frac{30}{17},\frac{10}{17}$)};
+        \end{tikzpicture}
+      }
+      \end{center}
+      得到$\max z = \frac{40}{17}$；
+      \item 
+      $x_2 = -x_1 + \frac{z}{2}$\\
+      画图：
+      \begin{center}
+      \resizebox{0.6\linewidth}{!}{
+        \begin{tikzpicture}[xscale=0.9,yscale=0.9]
+            % draw the axis
+            \draw[eaxis] (-0.5,0) -- (4,0) node[below] {$x_1$};
+            \draw[eaxis] (0,-0.5) -- (0, 4) node[above] {$x_2$};
+            % draw the function (piecewise)
+            \draw[elegant,domain=-0.5:2] plot(\x,{\x+1});
+            \draw[elegant,domain= 0.5:3.5] plot(\x,{-\x+3});
+            \draw[elegant,domain=-0.5:4] plot(\x,0);
+            \draw[elegant,domain=-0.5:4] plot(0,\x);
+            \fill[gray!40] (0,0) -- (3,0) -- (1,2) -- (0,1) -- (0,0);
+
+            \draw[elegant,red,domain=0.8:3.2] plot(\x,{-\x+3});
+
+            \node at (3,0) [right] {(3,0)};
+            \node at (1,2) [right] {(1,2)};
+        \end{tikzpicture}
+      }
+      \end{center}
+      得到$\max \frac{z}{2} = 3$，即$\max z = 6$；
+      \item 
+      $x_2 = -x_1 + z$\\
+      画图：
+      \begin{center}
+      \resizebox{0.6\linewidth}{!}{
+        \begin{tikzpicture}[xscale=0.5,yscale=0.5]
+            % draw the axis
+            \draw[eaxis] (-0.5,0) -- (8,0) node[below] {$x_1$};
+            \draw[eaxis] (0,-0.5) -- (0, 8) node[above] {$x_2$};
+            % draw the function (piecewise)
+            \draw[elegant,domain=-0.5:7.5] plot(\x,{\x/2+1});
+            \draw[elegant,domain=1:7.5] plot(\x,{\x-2});
+            \draw[elegant,domain=-0.5:7.5] plot(\x,0);
+            \draw[elegant,domain=-0.5:7.5] plot(0,\x);
+            
+            \fill[gray!40] (8,0) -- (2,0) -- (6,4) -- (8,5) -- (8,0);
+
+            % \draw[elegant,red,domain=1:2.5] plot(\x,{-\x+2});
+            % \node[circle,draw=black, fill=gray!40, inner sep=0pt,minimum size=2pt] (b) at (2,0) {};
+            % \node at (2,0) [right] {(2,0)};
+        \end{tikzpicture}
+      }
+      \end{center}
+      得到$\max z = +\infty$；
+   \end{enumerate}
+\end{solution}
