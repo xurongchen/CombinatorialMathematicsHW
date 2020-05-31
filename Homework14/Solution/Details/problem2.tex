@@ -1,0 +1,16 @@
+设$C$是长为$n$的线性码，在$C$中权为偶数的码字末位加0，在权为奇数的码字末位
+加1，从而形成一新的码$C'$，
+\begin{enumerate}
+    \item 若${H}$是$C$的校验矩阵，则C'的校验矩阵为
+    \begin{align*}
+        \left[\begin{matrix}
+            1&1&\cdots&1\\
+             & & &0\\
+             &H& &\vdots\\
+             & & &0
+        \end{matrix}\right]
+    \end{align*}
+    \item 证明$C'$的任意两个码间的距离为偶数.
+    \item 证明若$C$的两个码间的最小距离$d$是奇数，则$C'$对应码间
+    最小距离为$d+1$.
+\end{enumerate}

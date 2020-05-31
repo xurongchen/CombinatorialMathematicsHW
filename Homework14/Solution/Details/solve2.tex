@@ -1,0 +1,59 @@
+\begin{proof}
+   \begin{enumerate}
+      \item 设$C$的一组码字$w=w_1w_2\ldots w_n$，根据$H$是$C$的校验矩阵：
+      \begin{align*}
+         H \left[\begin{matrix}
+            w_1\\w_2\\\vdots\\w_n
+         \end{matrix}\right] = 0
+      \end{align*}
+      对应$w=w_1w_2\ldots w_n$在$C'$中的码为$w=w_1w_2\ldots w_n,w_{n+1}$，其中
+      $w_{n+1} = w_1\oplus w_\oplus \ldots\oplus w_n$（$\oplus$是异或）。
+      于是：
+      \begin{align*}
+         \left[\begin{matrix}
+             1&1&\cdots&1\\
+              & & &0\\
+              &H& &\vdots\\
+              & & &0
+         \end{matrix}\right]
+         \left[\begin{matrix}
+            w_1\\w_2\\\vdots\\w_n\\w_{n+1}
+         \end{matrix}\right] = \left[\begin{matrix}
+            w_1\oplus w_\oplus \ldots\oplus w_n\oplus w_{n+1}\\0\\\vdots\\0
+         \end{matrix}\right]=0
+     \end{align*}
+     综上，$C'$的校验矩阵是：\begin{align*}
+      \left[\begin{matrix}
+          1&1&\cdots&1\\
+           & & &0\\
+           &H& &\vdots\\
+           & & &0
+      \end{matrix}\right]
+  \end{align*}
+      \item 由于$C'$是在偶数权$C$的码字末位加0，奇数权的码字末位加1得到的，
+      所以，$C'$码字的权一定是偶数。设两个$C'$码字分别是$A=a_1a_2\ldots a_{n+1},b_1b_2\ldots b_{n+1}$，则$\bigoplus_A = 0,\bigoplus_B = 0$，两者距离为$w(A\oplus B)$，
+      其中$\oplus$是按位异或操作：
+      \begin{align*}
+         \bigoplus_{A\oplus B} = \bigoplus_A \oplus \bigoplus_B = 0\oplus 0 =0
+      \end{align*}
+      于是$w(A\oplus B)$即两个$C'$码字的距离一定是偶数。
+      \item 首先，由于$C'$前$n$位和$C$一致，$C'$码字的距离一定大于等于$C$。下面证明，
+      如果$C$的两个码$M,N$间的最小距离$d$是奇数，则在$C'$中扩展的一位不一样。
+
+      若$M,N$在$C'$中扩展的一位均为0，则$M,N$中1的个数均为偶数个，即$\bigoplus_M = 0,\bigoplus_N = 0$，
+      此时：
+      \begin{align*}
+         \bigoplus_{M\oplus N} = \bigoplus_M \oplus \bigoplus_N = 0\oplus 0 =0
+      \end{align*}
+      于是$w(M\oplus N)$即$M,N$码字的距离一定是偶数。
+
+      若$M,N$在$C'$中扩展的一位均为1，则$M,N$中1的个数均为奇数个，即$\bigoplus_M = 1,\bigoplus_N = 1$，
+      此时：
+      \begin{align*}
+         \bigoplus_{M\oplus N} = \bigoplus_M \oplus \bigoplus_N = 1\oplus 1 =0
+      \end{align*}
+      于是$w(M\oplus N)$即$M,N$码字的距离一定是偶数。
+
+      综上，如果$C$的两个码$M,N$间的最小距离$d$是奇数，$C'$中扩展的一位不一样。即$C'$的最小距离为$d+1$。
+   \end{enumerate}
+\end{proof}
